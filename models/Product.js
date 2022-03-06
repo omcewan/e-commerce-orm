@@ -1,4 +1,5 @@
 // import important parts of sequelize library
+const { DATE } = require('mysql2/lib/constants/types');
 const { Model, DataTypes } = require('sequelize');
 // import our database connection from config.js
 const sequelize = require('../config/connection');
@@ -9,7 +10,38 @@ class Product extends Model {}
 // set up fields and rules for Product model
 Product.init(
   {
-    // define columns
+    id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      autoIncrement: true,
+      primaryKey: true,
+    },
+    product_name: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    price: {
+      type: DataTypes.FLOAT,
+      allowNull: false,
+      validate: {
+        isFloat: true,
+      },
+    },
+    stock: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      defaultValue: 10,
+      validate: {
+        isNumeric: true,
+      },
+    },
+    catergory_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'catergory',
+        key: 'id',
+      },
+    },
   },
   {
     sequelize,
