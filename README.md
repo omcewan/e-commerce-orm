@@ -27,7 +27,7 @@ More screenshots can be found in the images directory in assets.
 To install the application, download the code base from the applications repository https://github.com/omcewan/e-commerce-orm. Then your systems terminal/bash shell, run the command, npm install or npm i (shorten version) to download all the packages needed for the application.
 
 ## Usage
-Upon downloaded the dependencies for the application you will need to log into mysql and create the database. This can be done by typing the command 'source db/db.sql'. This will create the database. Then you will need to seed the tables and data. To do this log out of mysql and then run the command npm run seeds. This will popluate data to the tables. You can now start the application using the command npm start where you can make queries.
+Upon downloaded the dependencies for the application you will need to log into mysql and create the database. This can be done by typing the command 'source db/db.sql'. This will create the database. Then you will need to seed the tables and data. To do this log out of mysql and then run the command npm run seeds. This will popluate data to the tables. You can now start the application using the command npm start where you can make queries. You can also use this link to see a video demonstrating how use the application, https://drive.google.com/file/d/1jFNjA1iIi700gmDnOqEaWkcm1Rl1tM4P/view. 
 
 ## Contribution
 To contribute to this application please for the application from the GitHub repository above, where you can work on the changes you would like to implement and then submit a pull request. 
