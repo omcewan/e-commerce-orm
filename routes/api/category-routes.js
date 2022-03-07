@@ -58,8 +58,9 @@ router.put('/:id', (req, res) => {
     { where: { id: req.params.id } }
   )
     .then((categoryData) => {
-      if (!categoryData) {
-        console.log({ message: 'No Category with that ID was found!' });
+      if (categoryData[0] === 0) {
+        // TODO: fix error message not showing up
+        res.status(400).json({ message: 'No Category with that ID was found or No Change was made to this ID!' });
         return;
       }
       res.json(categoryData);
@@ -75,7 +76,7 @@ router.delete('/:id', (req, res) => {
   Category.destroy({ where: { id: req.params.id } })
     .then((categoryData) => {
       if (!categoryData) {
-        console.log({ message: 'No Category with that ID was found' });
+        res.status(400).json({ message: 'No Category with that ID was found' });
         return;
       }
       res.json(categoryData);

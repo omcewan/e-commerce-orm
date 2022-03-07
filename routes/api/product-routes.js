@@ -24,12 +24,12 @@ router.get('/:id', (req, res) => {
   // find a single product by its `id`
   // be sure to include its associated Category and Tag data
   Product.findOne({
-    include: [{ model: Category }, { model: Tag }],
     where: { id: req.params.id },
+    include: [{ model: Category }, { model: Tag }],
   })
     .then((productData) => {
       if (!productData) {
-        console.log({ message: 'No Product with that ID was found!' });
+        res.status(400).json({ message: 'No Product with that ID was found!' });
         return;
       }
       res.json(productData);
@@ -119,7 +119,7 @@ router.delete('/:id', (req, res) => {
   Product.destroy({ where: { id: req.params.id } })
     .then((productData) => {
       if (!productData) {
-        console.log({ message: 'No Product with that ID was found' });
+        res.status(400).json({ message: 'No Product with that ID was found' });
         return;
       }
       res.json(productData);
