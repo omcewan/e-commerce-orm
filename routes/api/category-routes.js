@@ -58,8 +58,7 @@ router.put('/:id', (req, res) => {
     { where: { id: req.params.id } }
   )
     .then((categoryData) => {
-      if (categoryData[0] === 0) {
-        // TODO: fix error message not showing up
+      if (!categoryData[0]) {
         res.status(400).json({ message: 'No Category with that ID was found or No Change was made to this ID!' });
         return;
       }

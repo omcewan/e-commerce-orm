@@ -38,17 +38,28 @@ router.get('/:id', (req, res) => {
     });
 });
 
+// TODO: this is last route to do
 router.post('/', (req, res) => {
   // create a new tag
+  Tag.create({ tag_name: req.body.tag_name })
+    .then((tagData) => {
+      res.json(tagData);
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json(err);
+    });
 });
 
 router.put('/:id', (req, res) => {
   // update a tag's name by its `id` value
   Tag.update({ tag_name: req.body.tag_name }, { where: { id: req.params.id } })
     .then((tagData) => {
-      if (tagData[0] === 0) {
-        // TODO: fix error message not showing up
-        res.status(400).json({ message: 'No Tag with that ID was found or No Change was made to this ID!' });
+      if (!tagData[0]) {
+        res.status(400).json({
+          message:
+            'No Tag with that ID was found or No Change was made to this ID!',
+        });
         return;
       }
       res.json(tagData);
