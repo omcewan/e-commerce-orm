@@ -20,7 +20,8 @@ E-commerce Back End is an application that was made to utilize sequelize as an O
  * Sequelize
 
 ## ScreenShot
-![This is a screenshot](assets/images/Screen Shot 2022-03-07 at 5.55.07 PM.png)
+![This is a screenshot](./assets/images/Screen%20Shot%202022-03-07%20at%205.55.07%20PM.png)
+More screenshots can be found in the images directory in assets.
 
 ## Installation
 To install the application, download the code base from the applications repository https://github.com/omcewan/e-commerce-orm. Then your systems terminal/bash shell, run the command, npm install or npm i (shorten version) to download all the packages needed for the application.
